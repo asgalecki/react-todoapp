@@ -1,8 +1,15 @@
-import logo from "./logo.svg";
 import "./App.css";
+import ToDoContextProvider from "./contexts/ToDoContext";
+import ToDoList from "./components/ToDoList";
 
 function App() {
-	return <div className='App'></div>;
+	return (
+		<ToDoContextProvider>
+			<div className='container'>
+				<ToDoList />
+			</div>
+		</ToDoContextProvider>
+	);
 }
 
 export default App;

@@ -1,3 +1,12 @@
-.App {
-	text-align: center;
+body {
+	background-color: rgba(42, 42, 46, 0.9);
+}
+
+.container {
+	max-width: 400px;
+}
+
+.todos__todo {
+	color: rgba(255, 255, 210, 0.9);
+	background-color: rgba(42, 42, 46, 0.5);
 }
