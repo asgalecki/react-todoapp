@@ -21,10 +21,12 @@ describe("ToDoList - render elements", () => {
 		const form = screen.getByTestId("addForm");
 		const addToDo = screen.getByLabelText(/add/i);
 
+		// add first todo
 		userEvent.clear(addToDo);
 		userEvent.type(addToDo, "drink coffe");
 		fireEvent.submit(form);
 
+		// add second todo
 		userEvent.clear(addToDo);
 		userEvent.type(addToDo, "play chess");
 		fireEvent.submit(form);
@@ -35,6 +37,7 @@ describe("ToDoList - render elements", () => {
 		const deleteButton = screen.getByTestId("test play chess");
 		expect(deleteButton).toBeInTheDocument();
 
+		// delete one todo
 		userEvent.click(deleteButton.firstChild);
 		todos = screen.getAllByRole("listitem");
 		expect(todos).toHaveLength(1);

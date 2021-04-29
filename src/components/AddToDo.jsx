@@ -2,12 +2,12 @@ import React, { useContext, useState } from "react";
 import { ToDoContext } from "../contexts/ToDoContext";
 
 const AddToDo = () => {
-	const { addToDo } = useContext(ToDoContext);
+	const { dispatch } = useContext(ToDoContext);
 	const [todo, setTodo] = useState("");
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		addToDo(todo);
+		dispatch({ type: "ADD_TODO", todo });
 		setTodo("");
 	};
 

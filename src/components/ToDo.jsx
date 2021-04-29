@@ -4,7 +4,7 @@ import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { ToDoContext } from "../contexts/ToDoContext";
 
 const ToDo = ({ todo }) => {
-	const { removeToDo } = useContext(ToDoContext);
+	const { dispatch } = useContext(ToDoContext);
 	return (
 		<li className='list-group-item d-flex justify-content-between align-items-center todos__todo'>
 			{todo.task}
@@ -13,7 +13,7 @@ const ToDo = ({ todo }) => {
 					icon={faTrashAlt}
 					data-testid={todo.task}
 					className='delete'
-					onClick={() => removeToDo(todo.id)}
+					onClick={() => dispatch({ type: "REMOVE_TODO", id: todo.id })}
 				/>
 			</span>
 		</li>
