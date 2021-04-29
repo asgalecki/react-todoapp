@@ -22,11 +22,16 @@ describe("Navbar test", () => {
 		userEvent.type(addToDo, "drink coffe");
 		fireEvent.submit(form);
 
+		let para = screen.getByText("currently you have 1 thing to do...", {
+			exact: false,
+		});
+		expect(para).toBeInTheDocument();
+
 		userEvent.clear(addToDo);
 		userEvent.type(addToDo, "play chess");
 		fireEvent.submit(form);
 
-		const para = screen.getByText(/currently/i);
+		para = screen.getByText(/currently/i);
 		expect(para).toHaveTextContent("2");
 	});
 });
