@@ -7,9 +7,12 @@ const ToDoContextProvider = (props) => {
 		{ task: "buy some milk", id: 1 },
 		{ task: "play fifa", id: 2 },
 	]);
+	const addToDo = (todo) => {
+		setTodos([...todos, { task: todo, id: 3 }]);
+	};
 
 	return (
-		<ToDoContext.Provider value={{ todos }}>
+		<ToDoContext.Provider value={{ todos, addToDo }}>
 			{props.children}
 		</ToDoContext.Provider>
 	);
