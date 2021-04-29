@@ -8,7 +8,7 @@ const ToDoList = () => {
 	return todos.length ? (
 		<ul className='list-group mx-auto text-light todos'>
 			{todos.map((todo) => {
-				return <ToDo todo={todo.task} key={todo.id} />;
+				return <ToDo todo={todo} key={todo.id} />;
 			})}
 		</ul>
 	) : (

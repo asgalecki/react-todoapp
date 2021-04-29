@@ -8,9 +8,12 @@ const ToDoContextProvider = (props) => {
 	const addToDo = (todo) => {
 		setTodos([...todos, { task: todo, id: uuid() }]);
 	};
+	const removeToDo = (id) => {
+		setTodos(todos.filter((todo) => todo.id !== id));
+	};
 
 	return (
-		<ToDoContext.Provider value={{ todos, addToDo }}>
+		<ToDoContext.Provider value={{ todos, addToDo, removeToDo }}>
 			{props.children}
 		</ToDoContext.Provider>
 	);

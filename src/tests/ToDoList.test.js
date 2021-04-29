@@ -9,11 +9,13 @@ describe("ToDoList - render elements", () => {
 		render(<ToDoList />, { wrapper: ToDoContextProvider });
 
 		const todos = screen.queryAllByRole("listitem");
-
 		expect(todos).toHaveLength(0);
+
+		const noTodos = screen.getByText(/it seems/i);
+		expect(noTodos).toBeInTheDocument();
 	});
 
-	it("render new todos after adding todo", () => {
+	it("render todos after adding and removing todo ", () => {
 		render(<App />);
 
 		const form = screen.getByTestId("addForm");
@@ -27,8 +29,14 @@ describe("ToDoList - render elements", () => {
 		userEvent.type(addToDo, "play chess");
 		fireEvent.submit(form);
 
-		const todos = screen.getAllByRole("listitem");
-
+		let todos = screen.getAllByRole("listitem");
 		expect(todos).toHaveLength(2);
+
+		const deleteButton = screen.getByTestId("test play chess");
+		expect(deleteButton).toBeInTheDocument();
+
+		userEvent.click(deleteButton.firstChild);
+		todos = screen.getAllByRole("listitem");
+		expect(todos).toHaveLength(1);
 	});
 });
