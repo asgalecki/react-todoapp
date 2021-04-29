@@ -12,7 +12,9 @@ const ToDoList = () => {
 			})}
 		</ul>
 	) : (
-		<div className='empty'>It seems that you have nothing todo.</div>
+		<div className='empty text-center text-light'>
+			It seems that you have nothing todo.
+		</div>
 	);
 };
 
