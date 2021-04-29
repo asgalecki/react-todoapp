@@ -8,9 +8,9 @@ describe("ToDoList - render elements", () => {
 	it("render initial elements from ToDoContext", () => {
 		render(<ToDoList />, { wrapper: ToDoContextProvider });
 
-		const todos = screen.getAllByRole("listitem");
+		const todos = screen.queryAllByRole("listitem");
 
-		expect(todos).toHaveLength(2);
+		expect(todos).toHaveLength(0);
 	});
 
 	it("render new todos after adding todo", () => {
@@ -22,8 +22,13 @@ describe("ToDoList - render elements", () => {
 		userEvent.clear(addToDo);
 		userEvent.type(addToDo, "drink coffe");
 		fireEvent.submit(form);
+
+		userEvent.clear(addToDo);
+		userEvent.type(addToDo, "play chess");
+		fireEvent.submit(form);
+
 		const todos = screen.getAllByRole("listitem");
 
-		expect(todos).toHaveLength(3);
+		expect(todos).toHaveLength(2);
 	});
 });
