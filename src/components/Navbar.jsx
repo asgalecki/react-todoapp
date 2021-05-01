@@ -11,12 +11,13 @@ const Navbar = () => {
 	return (
 		<header className='text-center text-light my-4 mx-auto'>
 			<h1 className='mb-4 text-center'>Todo List</h1>
-			<form className='search'>
+			<form className='search my-4' onSubmit={(e) => e.preventDefault()}>
 				<input
 					type='text'
 					name='search'
 					className='form-control m-auto'
 					placeholder='search todos'
+					autoComplete='off'
 					onKeyUp={(e) => addSearch(e.target.value)}
 				/>
 			</form>

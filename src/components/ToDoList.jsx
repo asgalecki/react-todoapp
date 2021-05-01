@@ -11,9 +11,11 @@ const ToDoList = () => {
 
 	return todos.length ? (
 		<ul className='list-group mx-auto text-light todos'>
-			{todos.map((todo) => {
-				return <ToDo todo={todo} key={todo.id} />;
-			})}
+			{todos
+				.filter((todo) => todo.task.toLowerCase().includes(search))
+				.map((todo) => {
+					return <ToDo todo={todo} key={todo.id} />;
+				})}
 		</ul>
 	) : (
 		<div className='empty text-center text-light'>

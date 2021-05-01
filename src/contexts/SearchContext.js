@@ -10,9 +10,9 @@ const SearchContextProvider = (props) => {
 	};
 
 	return (
-		<SearchContextProvider value={{ search, addSearch }}>
+		<SearchContext.Provider value={{ search, addSearch }}>
 			{props.children}
-		</SearchContextProvider>
+		</SearchContext.Provider>
 	);
 };
 

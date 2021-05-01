@@ -25,6 +25,7 @@ const AddToDo = () => {
 				name='add'
 				id='add'
 				className='form-control m-auto'
+				autoComplete='off'
 				value={todo}
 				onChange={(e) => setTodo(e.target.value)}
 			/>
